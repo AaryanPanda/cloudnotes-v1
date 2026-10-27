@@ -1,0 +1,33 @@
+# ---------------------------------------------------------------------------
+# Example environment values for the CloudNotes infrastructure.
+#
+# Copy to terraform.tfvars and adjust for your environment:
+#     cp terraform.tfvars.example terraform.tfvars
+#
+# Every value here has a default in variables.tf, so `terraform plan` works
+# with no tfvars at all. This file shows what a real environment would set.
+# No secrets belong in this file — the DB password and app secret key are
+# read from Secret Manager at runtime, never committed.
+# ---------------------------------------------------------------------------
+
+project = "cloudnotes-dev"
+region  = "asia-south1"
+zone    = "asia-south1-a"
+
+# Network
+network_name    = "cloudnotes-vpc"
+web_subnet_cidr = "10.10.0.0/24"
+app_subnet_cidr = "10.10.1.0/24"
+db_subnet_cidr  = "10.10.2.0/24"
+
+# Compute
+instance_name = "cloudnotes-app"
+machine_type  = "e2-medium"
+app_port      = 5000
+
+# Database
+db_instance_name = "cloudnotes-db"
+db_tier          = "db-f1-micro"
+
+# Storage (bucket names are globally unique — change for your project)
+assets_bucket_name = "cloudnotes-dev-assets"
