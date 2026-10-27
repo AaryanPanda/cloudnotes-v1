@@ -5,3 +5,14 @@ __pycache__/
 *.pyd
 .DS_Store
 *.swp
+
+# Never commit real secrets or the local database
+.env
+database/*.db
+uploads/*
+!uploads/.gitkeep
+
+# supervisord / runtime artifacts
+*.sock
+*.pid
+/tmp/
